@@ -146,7 +146,8 @@ return [
 		'App\Providers\RouteServiceProvider',
 
 		// Provider Socialite
-		"Laravel\Socialite\SocialiteServiceProvider",
+		'Laravel\Socialite\SocialiteServiceProvider',
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 
 	],
 

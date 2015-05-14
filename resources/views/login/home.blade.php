@@ -10,6 +10,22 @@
 						<img src="{{ asset('/img/logo_netsul.png')}}" class="mdi-image-lens" style="height: 100px; width: 120px;">
 					</div>
 				</div>
+                @if((count($errors)>0))
+                <div class="col s12 m12 l12">
+                    <div class="row">
+                        <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">Erro!</span>
+                                @foreach($errors->all() as $erro)
+                                <p>
+                                    <li>{{$erro}}</li>x
+                                </p
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
 				<div class="col s12 m12 l12">
 					<div class="input-field col s12 m4 offset-m4 l4 offset-l4 center">
 						<input type="text" id="user" class="validate">

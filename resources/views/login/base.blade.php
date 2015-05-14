@@ -33,14 +33,18 @@
 			.input-field label{
 				color: white;
 			}
-			.input-field input{
-				color:white;
-			}
-
+			.input-field input {
+                color: white;
+            }
+             .input-field input[type=text]:disabled{
+                 color: white;
+             }
+            .input-field input[type=text]:disabled + label{
+                color: white;
+            }
 			main {
 				flex: 1 0 auto;
 			}
-
 			footer{
 				background: none repeat scroll 0% 0% #1F646C !important;
 			}

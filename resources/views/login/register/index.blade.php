@@ -3,10 +3,6 @@
 @section('style')
 
 <style>
-	#container-white{
-		
-	}
-	
 </style>
 
 @endsection
@@ -15,7 +11,7 @@
 
 <main>
 	<div class="row">
-		<div class="container" id="container-white">
+		<div class="container">
 			<div class="col s12 m12 l12">
 				<h5 class="text-darken-4 white-text center">Cadastro</h5>
 				<div class="row">
@@ -36,6 +32,10 @@
 							<input type="password" class="validate" id="pass" name="pass">
 							<label for="pass"><i class="mdi-image-wb-irradescent"></i>Senha</label>
 						</div>
+                        <div class="input-field">
+                            <input type="text" class="validate" id="cpf_cnpj" name="cpf_cnpj">
+                            <label for="cpf_cnpj"><i class="mdi-action-payment"></i>CPF/CNPJ</label>
+                        </div>
 
 						<!-- radio button - nacionalidade -->
 						<div class="input-field">

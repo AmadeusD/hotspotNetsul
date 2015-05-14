@@ -35,10 +35,10 @@ return [
 		'secret' => '',
 	],
 
-	'facebook' => [
-		'client_id' => '1611774562367837' ,
-		'client_secret' => 'efded667cdacb11d28e1e375a07c90c1',
-		'redirect' => 'http://localhost/facebook/registrar',
-	],
+    'facebook' => [
+        'client_id' => '662461860547936' ,
+        'client_secret' => '735ea3ba52a68533d719bdc8c2ba4145',
+        'redirect' => 'http://localhost/facebook/registrar',
+    ],
 
 ];
