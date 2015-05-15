@@ -11,16 +11,26 @@
     </style>
 @endsection
 
-
 @section('content')
     <main>
+      <!-- Modal confirm telefone pin -->
+        <div id="modal1" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Confirmação de telefone</h4>
+                <p>Será enviado um número de quatro dígitos por SMS ao número <span id="tel-modal"></span>. Todas as informações estão corretas?</p>
+                <a href="#!" id="submit" class="modal-action waves-effect waves-red btn-flat ">Confirmar</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancelar</a>
+            </div>
+        </div>
+      <!-- End modal confirm telefone pin -->
+
         <div class="row">
             <div class="container" id="container-white">
                 <div class="col s12 m12 l12">
                     <h5 class="text-darken-4 white-text center">Cadastro com Facebook</h5>
                     <div class="row">
                         <div class="col s12 m12 l6">
-                            <form method="post" action="{{URL::route('FacebookPost')}}">
+                            <form id="form-cad" method="post" action="{{URL::route('FacebookPost')}}">
                                 <div class="input-field">
                                     <input disabled value="{{$user['nome']}}" type="text" class="validate " id="name disabled" name="name" title="Nome">
                                     <label for="name"><i class="mdi-social-person"></i>Nome</label>
@@ -56,7 +66,7 @@
 
                                 <!-- button submit - form cadastro -->
                                 <div class="center-align">
-                                    <button type="submit" name="submit" class="btn waves-orange waves-effect"><i class="mdi-content-send right"></i>Cadastrar</button>
+                                    <button id="b-submit" data-target="modal1" name="" class="btn waves-orange waves-effect"><i class="mdi-content-send right"></i>Cadastrar</button>
                                 </div>
                             </form>
                         </div>
@@ -73,4 +83,25 @@
             </div>
         </div>
     </main>
+@endsection
+
+@section("script")
+
+    <script>
+        $(document).ready(function(){
+            $('#b-submit').click(function(event){ //Open modal
+                $('#modal1').openModal();
+                var tel = $('#tel').val();
+                $('#tel-modal').text(tel);
+                event.preventDefault();
+            });
+            $('#submit').click(function(event){ //Submit form
+                $('#form-cad').submit();
+                $('modal1').closeModal();
+                console.log('aquio');
+
+            });
+        });
+    </script>
+
 @endsection

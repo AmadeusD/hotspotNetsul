@@ -22,7 +22,7 @@ Route::get('cadastro', ['as'=>'Cadastro', 'uses'=>'CadastroController@index']);
 Route::get('facebook/login', ['as'=>'FacebookRedirect', 'uses'=>'LoginFacebookController@FacebookRedirect']);
 Route::get('facebook/registrar', ['as'=>'FacebookCallback', 'uses'=> 'LoginFacebookController@FacebookRegister']);
 
-//Rota post do formulário de cadastro
+//Rota post do formulário de cadastro Face
 Route::post('facebook/registrar', ['as'=>'FacebookPost', 'uses'=>'LoginFacebookController@FacebookRegisterPost']);
 
 Route::controllers([

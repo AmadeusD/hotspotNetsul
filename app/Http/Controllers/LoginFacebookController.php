@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 
 class LoginFacebookController extends Controller {
 
+    /**
+     * @return mixed
+     */
     public function FacebookRedirect(){ //Redireciona para o login no face
         return Socialize::with('facebook')->redirect();
     }
@@ -34,6 +37,12 @@ class LoginFacebookController extends Controller {
         return view('login/facebook/cadastro/index')->with('user', $user);
     }
 
+
+    //Funções de registro pelo Facebook
+    /**
+     * @param Request $request
+     * @return $this|\Illuminate\View\View
+     */
     public function FacebookRegisterPost(Request $request){ //Recebe o post do formulário de cadastro com o face
         $method = $request->method();
         if($method != "POST"){
@@ -41,7 +50,7 @@ class LoginFacebookController extends Controller {
         } else {
             $validator = Validator::make($request->all(), [
                 'cpf_cnpj'=>'required|unique:users',
-                'email'=>'required|unique:users',
+                'email'=>'required|unique:users|email',
                 'nacionalidade'=>'required',
                 'tel'=>'required',
             ]);
@@ -63,6 +72,12 @@ class LoginFacebookController extends Controller {
         }
 
     }
+
+    public function FacebookRegisterCheckMethod(){
+
+    }
+
+
 
 
 

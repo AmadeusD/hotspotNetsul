@@ -1,9 +1,24 @@
 @extends('login/base')
 
+@section("style")
+    <style>
+        #facebook{
+            background-color: #3A5795;
+        }
+        #google{
+            background-image: -moz-linear-gradient(center top , #DD4B39, #D14836);
+        }
+        #twitter{
+            background-color: #55ACEE;
+        }
+    </style>
+
+@endsection
+
 @section('content')
 <main>
 	<div class="row">
-		<form class="col s12 m12" action="#">
+		<form class="col s12 m12 l12" action="#">
 			<div class="row">
 				<div class="col s12 m12 l12">
 					<div class="input-field col s12 m4 offset-m4 l4 offset-l4 center">
@@ -18,8 +33,8 @@
                                 <span class="card-title">Erro!</span>
                                 @foreach($errors->all() as $erro)
                                 <p>
-                                    <li>{{$erro}}</li>x
-                                </p
+                                    <li>{{$erro}}</li>
+                                </p>
                                 @endforeach
                             </div>
                         </div>
@@ -45,13 +60,13 @@
 					</div>
 				</div>
 				<div class="col s12 m12 l12">
-					<a href="#" class="btn waves-red waves-effect col s12 m4 l4 offset-l4">Google</a>
+					<a href="#" class="btn waves-light waves-effect col s12 m4 l4 offset-l4" id="google"><i class="fa fa-google-plus-square"></i> Google</a>
 				</div>
 				<div class="col s12 m12 l12">
-					<a href="#" class="btn waves-red waves-effect col s12 m4 l4 offset-l4">Facebook</a>
+					<a href="{{URL::route('FacebookRedirect')}}" class="btn waves-light waves-effect col s12 m4 l4 offset-l4" id="facebook"><i class="fa fa-facebook-square"></i> Facebook</a>
 				</div>
 				<div class="col s12 m12 l12">
-					<a href="#" class="btn waves-red waves-effect col s12 m4 l4 offset-l4">Twitter</a>
+					<a href="#" class="btn waves-light waves-effect col s12 m4 l4 offset-l4" id="twitter"><i class="fa fa-twitter-square"></i> Twitter</a>
 				</div>
 			</div>
 		</form>

@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 
-	<link rel="stylesheet" href=" {{ asset('/css/materialize.min.css') }}">
+	<link rel="stylesheet" href=" {{ asset('/css/materialize.min.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/font-awesome-4.1.0/css/font-awesome.min.css') }} ">
 	<script src="{{ asset('js/jquery.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('/js/materialize.min.js') }}"></script>
 
@@ -29,6 +30,17 @@
 				min-height: 100vh;
 				flex-direction: column;
 			}
+
+            .side-nav{
+                background: none repeat scroll 0% 0% #1F646C !important;
+            }
+
+            .side-nav a{
+                color: white;
+            }
+            .side-nav a:hover{
+                color: black;
+            }
 
 			.input-field label{
 				color: white;
@@ -104,5 +116,7 @@
 				$(".button-collapse").sideNav();
 			})
 		</script>
+
+        @yield('script')
 	</body>
 	</html>
