@@ -1,6 +1,6 @@
 <?php namespace App\Services;
 
-use App\User;
+use App\Model as Model;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 
@@ -25,11 +25,11 @@ class Registrar implements RegistrarContract {
 	 * Create a new user instance after a valid registration.
 	 *
 	 * @param  array  $data
-	 * @return User
+	 * @return Model\User
 	 */
 	public function create(array $data)
 	{
-		return App\Model\User::create([
+		return Model\User::create([
 			'name' => $data['name'],
 			'email' => $data['email'],
 			'password' => bcrypt($data['password']),

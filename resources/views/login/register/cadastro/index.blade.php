@@ -1,16 +1,16 @@
-@extends('login/base')
+@extends('login.base')
 
 @section('style')
+
     <style>
-        input[type="text"][readonly="readonly"]{
-            color: white;
-        }
     </style>
+
 @endsection
 
 @section('content')
+
     <main>
-      <!-- Modal confirm telefone pin -->
+        <!-- Modal confirm telefone pin -->
         <div id="modal1" class="modal bottom-sheet">
             <div class="modal-content">
                 <h4>Confirmação de telefone</h4>
@@ -19,27 +19,35 @@
                 <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancelar</a>
             </div>
         </div>
-      <!-- End modal confirm telefone pin -->
-
+        <!-- End modal confirm telefone pin -->
         <div class="row">
-            <div class="container" id="container-white">
+            <div class="container">
                 <div class="col s12 m12 l12">
-                    <h5 class="text-darken-4 white-text center">Cadastro com Facebook</h5>
+                    <h5 class="text-darken-4 white-text center">Cadastro</h5>
                     <div class="row">
                         <div class="col s12 m12 l6">
-                            <form id="form-cad" method="post" action="{{URL::route('FacebookPost')}}">
+                            <form id="form-cad" method="post" action="{{URL::route('CommonRegister')}}">
                                 <div class="input-field">
-                                    <input readonly="readonly" value="{{$user['nome']}}" type="text" class="validate " id="name" name="name" title="Nome">
+                                    <input type="text" class="validate" id="name" name="name">
                                     <label for="name"><i class="mdi-social-person"></i>Nome</label>
                                 </div>
                                 <div class="input-field">
-                                    <input readonly="readonly" value="{{$user['email']}}" type="text" class="validate" id="email" name="email" title="Email">
+                                    <input type="text" class="validate" id="email" name="email">
                                     <label for="email"><i class="mdi-communication-email"></i>Email</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" class="validate" id="user" name="user">
+                                    <label for="user"><i class="mdi-action-account-box"></i>Usuário</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" class="validate" id="pass" name="pass">
+                                    <label for="pass"><i class="mdi-image-wb-irradescent"></i>Senha</label>
                                 </div>
                                 <div class="input-field">
                                     <input type="text" class="validate" id="cpf_cnpj" name="cpf_cnpj">
                                     <label for="cpf_cnpj"><i class="mdi-action-payment"></i>CPF/CNPJ</label>
                                 </div>
+
                                 <!-- radio button - nacionalidade -->
                                 <div class="input-field">
                                     <br><p class="white-text">Nacionalidade</p>
@@ -59,9 +67,10 @@
                                     <input type="tel" class="validate" id="tel" name="tel">
                                     <label for="tel"><i class="mdi-communication-phone"></i>Telefone (ddd-99999999)</label>
                                 </div>
+
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                <input type="hidden" name="provider" value="{{$user['provider']}}">
-                                <input type="hidden" name="provider_id" value="{{$user['provider_id']}}">
+                                <input type="hidden" name="provider" value="Common">
+                                <input type="hidden" name="provider_id" value="0">
 
                                 <!-- button submit - form cadastro -->
                                 <div class="center-align">

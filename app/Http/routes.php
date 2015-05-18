@@ -13,19 +13,34 @@
 
 Route::get('/', ['as'=>'Login', 'uses'=>'HomeController@index']);
 
-//Rota para registrar novo usuário normal - não cliente da Netsul
-Route::get('cadastro', ['as'=>'Cadastro', 'uses'=>'CadastroController@index']);
+
+Route::get("cadastro", ['as'=>'Register', 'uses'=>'CadastroController@index']);
 
 /**
- * Rotas de redirecionamento e callback do login do face
+ * Rotas para cadastro e login comum não cliente da Netsul
  */
-Route::get('facebook/login', ['as'=>'FacebookRedirect', 'uses'=>'LoginFacebookController@FacebookRedirect']);
-Route::get('facebook/registrar', ['as'=>'FacebookCallback', 'uses'=> 'LoginFacebookController@FacebookRegister']);
+Route::get('c/cadastro', ['as'=>'CommonRegister', 'uses'=>'Register\RegisterCommonController@index']);
+Route::post('c/cadastro', ['as'=>'CommonRegister', 'uses'=>'Register\RegisterCommonController@indexPost']);
 
+/**
+ * Rotas de cadastro e login por Facebook
+ */
+Route::get('facebook/', ['as'=>'FacebookRedirect', 'uses'=>'Register\RegisterFacebookController@FacebookRedirect']);
+Route::get('facebook/cadastrar', ['as'=>'FacebookCallback', 'uses'=> 'Register\RegisterFacebookController@FacebookRegister']);
 //Rota post do formulário de cadastro Face
-Route::post('facebook/registrar', ['as'=>'FacebookPost', 'uses'=>'LoginFacebookController@FacebookRegisterPost']);
+Route::post('facebook/cadastrar', ['as'=>'FacebookPost', 'uses'=>'Register\RegisterFacebookController@FacebookRegisterPost']);
+
+
+
+//Grupo das rotas filtradas por login
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('painel', function(){
+        echo "painel";
+    });
+});
+
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
+    'register' => 'Register\RegisterFacebookController',
 ]);

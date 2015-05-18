@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '662461860547936' ,
         'client_secret' => '735ea3ba52a68533d719bdc8c2ba4145',
-        'redirect' => 'http://localhost/facebook/registrar',
+        'redirect' => 'http://localhost/facebook/cadastrar',
     ],
 
 ];

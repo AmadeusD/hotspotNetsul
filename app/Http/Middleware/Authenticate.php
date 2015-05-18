@@ -2,6 +2,7 @@
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Contracts\Routing\Middleware;
 
 class Authenticate {
 
@@ -40,7 +41,7 @@ class Authenticate {
 			}
 			else
 			{
-				//return redirect()->guest('auth/login');
+				return redirect()->route('Login');
 			}
 		}
 
